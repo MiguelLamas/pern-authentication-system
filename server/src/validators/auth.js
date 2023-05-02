@@ -40,7 +40,7 @@ const loginFieldsCheck =
             if (!validPassword) {
                 throw new Error('Password is incorrect.')
             }
-
+            req.user = user.rows[0]
     })
 
 
