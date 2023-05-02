@@ -1,7 +1,7 @@
 const db = require("../db");
 const { hash } = require("bcryptjs"); // hash password
 const { sign } = require("jsonwebtoken"); // generate token for user
-const { SECRET } = require("../constants") // secret key for token
+const { SECRET } = require("../constants"); // secret key for token
 
 exports.getUsers = async (req, res) => {
   try {
@@ -43,11 +43,11 @@ exports.login = async (req, res) => {
     email: user.email,
   };
   try {
-    const token = await sign(payload, SECRET)
+    const token = await sign(payload, SECRET);
 
-    return res.status(200).cookie('token', token, {httpOnly: true}).json({
-        success: true,
-        message: 'User logged in successfully',
+    return res.status(200).cookie("token", token, { httpOnly: true }).json({
+      success: true,
+      message: "User logged in successfully",
     });
   } catch (error) {
     console.log(error.message);
@@ -60,9 +60,23 @@ exports.login = async (req, res) => {
 exports.protected = async (req, res) => {
   try {
     return res.status(200).json({
-      info: 'protected info',
+      info: "protected info",
     });
   } catch (error) {
     console.log(error.message);
+  }
+};
+
+exports.logout = async (req, res) => {
+  try {
+    return res.status(200).clearCookie("token", { httpOnly: true }).json({
+      success: true,
+      message: "Logged out successfully",
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({
+      error: error.message,
+    });
   }
 };
