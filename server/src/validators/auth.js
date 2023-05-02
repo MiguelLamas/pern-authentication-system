@@ -4,12 +4,12 @@ const db = require('../db')
 //password
 const password = check('password')
     .isLength({ min: 6, max: 15 })
-    .withMessage('Password must be between 6 and 15 characters long')
+    .withMessage('Password must be between 6 and 15 characters.')
 
 //email
 const email = check('email')
     .isEmail()
-    .withMessage('Must be a valid email address')
+    .withMessage('Please provide a valid email.')
 
 //check if email already exists
 const emailExists = check('email')
