@@ -1,5 +1,5 @@
 const db = require('../db');
-const {hash} = require("bcryptjs"); // hash password
+const { hash } = require("bcryptjs"); // hash password
 
 exports.getUsers = async (req, res) => {
     try {
