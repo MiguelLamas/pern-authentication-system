@@ -4,6 +4,7 @@ const pool = new Pool({
     user: 'miguellamas',
     host: 'localhost',
     database: 'pern_auth',
+    password: 'password',
     port: 5432,
 })
 

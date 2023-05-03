@@ -9,16 +9,16 @@ const cookieExtractor = (req) => {
   return token;
 };
 
-const options = {
+const opts = {
   secretOrKey: SECRET,
   jwtFromRequest: cookieExtractor,
 };
 
 passport.use(
-  new Strategy(options, async ({ id }, done) => {
+  new Strategy(opts, async ({ id }, done) => {
     try {
       const { rows } = await db.query(
-        "SELECT user_id, email FROM users WHERE user_id = $1",
+        'SELECT user_id, email FROM users WHERE user_id = $1',
         [id]
       );
 

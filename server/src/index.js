@@ -11,6 +11,7 @@ app.use(cookieParser())
 app.use(cors({ origin: CLIENT_URL, credentials: true }))
 app.use(passport.initialize());
 
+
 //import routes
 const authRoutes = require('./routes/auth');
 
