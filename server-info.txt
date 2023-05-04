@@ -1,0 +1,27 @@
+Pern Authentication System (Sever);
+PERN (postgresql, express, react, nodejs);
+
+Tech Stack:
+Node js + express frameworks,
+postgres for database
+express-validator for validation,
+passport && passport jwt for creating strategy,
+jsonwebtoken for creating jwt tokens and storing them into cookies,
+cors for communication between server and client,
+dotenv for environmental variables,
+
+Workflow:
+0. initialize project and create .gitignore file
+1. download postgresql
+2. create project structure
+3. set .env variables
+4. run application and test with basic routes
+5. set database.sql file
+6. connect to the database with pg and test query
+7. set validations for register function and test errors with express-validator middleware
+8. finish the register function
+9. set validations for login
+10. finish with login function
+11. create passport strategy and auth middleware
+12. test auth middleware with protected route
+13. create logout function with auth middleware
