@@ -8,7 +8,6 @@ Redux toolkit - state management
 
 Workflow:
 
-0. Note about two changes on the backend
 1. Clean all unnecessary files and structure the project
 2. Connect Bootstrap
 3. Install all needed packages (axios, reacter-router-dom)
