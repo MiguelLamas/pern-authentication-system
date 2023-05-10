@@ -17,40 +17,45 @@ const Register = () => {
 
   return (
     <Layout>
-      <form onSubmit={(e) => onSubmit(e)} className="container mt-3"></form>
-      <h1>Register</h1>
+      <form onSubmit={(e) => onSubmit(e)} className="container mt-3">
+        <h1>Register</h1>
 
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">
-          Email address
-        </label>
-        <input
-          onChange={(e) => onChange(e)}
-          type="email"
-          className="form-control"
-          id="email"
-          name="email"
-          value={values.email}
-          placeholder="test@gmail.com"
-          required //field required
-        />
-      </div>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email address
+          </label>
+          <input
+            onChange={(e) => onChange(e)}
+            type="email"
+            className="form-control"
+            id="email"
+            name="email"
+            value={values.email}
+            placeholder="test@gmail.com"
+            required //field required
+          />
+        </div>
 
-      <div>
-        <label htmlFor="password" className="form-label">
-          Password
-        </label>
-        <input 
-        onChange={(e) => onChange(e)}
-        type="text"
-        className="form-control"
-        id="password"
-        name="password"
-        value={values.password}
-        placeholder="password"
-        required //field required
-        />
-      </div>
+        <div>
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            onChange={(e) => onChange(e)}
+            type="text"
+            className="form-control"
+            id="password"
+            name="password"
+            value={values.password}
+            placeholder="password"
+            required //field required
+          />
+        </div>
+
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </form>
     </Layout>
   );
 };
