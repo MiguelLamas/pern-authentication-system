@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { onLogin } from "../api/auth";
 import Layout from "../components/layout";
+import { useDispatch } from "react-redux";
+import { authenticateUser } from "../redux/slices/authSlice";
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -13,12 +15,15 @@ const Login = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  const dispatch = useDispatch();
   const onSubmit = async (e) => {
-    e.preventDefault(); //prevents a refresh of page when we submit the form
+    e.preventDefault();
 
     try {
-      await onLogin(values)
+      await onLogin(values);
+      dispatch(authenticateUser());
 
+      localStorage.setItem('isAuth', 'true')
     } catch (error) {
       console.log(error.response.data.errors[0].msg);
       setError(error.response.data.errors[0].msg);
@@ -42,7 +47,7 @@ const Login = () => {
             name="email"
             value={values.email}
             placeholder="test@gmail.com"
-            required //field required
+            required
           />
         </div>
 
@@ -52,13 +57,13 @@ const Login = () => {
           </label>
           <input
             onChange={(e) => onChange(e)}
-            type="text"
+            type="password"
+            value={values.password}
             className="form-control"
             id="password"
             name="password"
-            value={values.password}
             placeholder="password"
-            required //field required
+            required
           />
         </div>
 

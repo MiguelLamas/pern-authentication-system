@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
-const navbar = () => {
-  const isAuth = false;
+const Navbar = () => {
+  const { isAuth } = useSelector((state) => state.auth)
 
   return (
     <nav className="navbar navbar-light bg-light">
@@ -36,4 +37,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;
