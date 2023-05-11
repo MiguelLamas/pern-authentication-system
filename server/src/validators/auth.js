@@ -10,7 +10,7 @@ const password = check("password")
 //email
 const email = check("email")
   .isEmail()
-  .withMessage("Please provide a valid email.");
+  .withMessage("Please provide a valid email address.");
 
 //check if email exists
 const emailExists = check("email").custom(async (value) => {
@@ -28,7 +28,7 @@ const loginFieldsCheck = check("email").custom(async (value, { req }) => {
   const user = await db.query("SELECT * from users WHERE email = $1", [value]);
 
   if (!user.rows.length) {
-    throw new Error("Email does not exists.");
+    throw new Error("Email does not exist.");
   }
 
   const validPassword = await compare(req.body.password, user.rows[0].password);
